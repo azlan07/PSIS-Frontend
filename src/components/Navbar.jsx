@@ -1,31 +1,47 @@
+import { FiBell } from "react-icons/fi";
+
 const Navbar = () => {
     return (
-        <div className="navbar fixed top-0 left-0 right-0 z-10 bg-base-100">
-            <div className="navbar-start">
-                <div className="dropdown">
+        <div className="navbar fixed top-0 left-0 right-0 z-10 bg-dua">
+            <div className="flex-1">
+                <a href="/" className="w-10"><img src="../../public/images/LogoPsis.svg" alt="" /></a>
+                <a href="/" className="btn btn-ghost normal-case text-xl">PSIS - DESA</a>
+            </div>
+            <div className="flex-none">
+                <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        <div className="indicator">
+                            <FiBell className="text-xl"/>
+                            <span className="badge badge-sm indicator-item">8</span>
+                        </div>
+                    </label>
+                    <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                        <div className="card-body">
+                            <span className="font-bold text-lg">8 Items</span>
+                            <span className="text-info">Subtotal: $999</span>
+                            <div className="card-actions">
+                                <button className="btn btn-primary btn-block">View cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src="../../public/vite.svg" />
+                        </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Homepage</a></li>
-                        <li><a>Portfolio</a></li>
-                        <li><a>About</a></li>
+                        <li>
+                            <a className="justify-between">
+                                Profile
+                                <span className="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a>Settings</a></li>
+                        <li><a>Logout</a></li>
                     </ul>
                 </div>
-            </div>
-            <div className="navbar-center">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-            </div>
-            <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                </button>
-                <button className="btn btn-ghost btn-circle">
-                    <div className="indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                        <span className="badge badge-xs badge-primary indicator-item"></span>
-                    </div>
-                </button>
             </div>
         </div>
     );

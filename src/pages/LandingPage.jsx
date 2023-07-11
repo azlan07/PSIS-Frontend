@@ -1,11 +1,13 @@
-import { Hero, Navbar, Footer} from "../components"
+import { Hero, Navbar, Footer, FiturUtama, Faq} from "../components"
 
 const LandingPage = () => {
     return ( 
         <>
             <Navbar/>
             <Hero/>
-            <Footer/>
+            <FiturUtama/>
+            <Faq/>
+            <Footer/>        
         </>
      );
 }
