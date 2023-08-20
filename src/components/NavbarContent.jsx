@@ -6,7 +6,7 @@ import { whoAmI } from '../actions/authActions';
 import { FiBell } from "react-icons/fi";
 import logoPsis from "../../public/images/LogoPsis.svg"
 
-const Navbar = () => {
+const NavbarContent = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -41,16 +41,6 @@ const Navbar = () => {
                 <a href="/" className="btn btn-ghost normal-case text-xl">PSIS - NAGARI</a>
             </div>
             <div className="flex-none">
-                {/* <div className='mr-5'>
-                    <a href="#home" className='text-lg font-semibold mx-2 hover:text-empat'>Home</a>
-                    <a href="#fitur-utama" className='text-lg font-semibold mx-2 hover:text-empat'>Fitur Utama</a>
-                    <a href="#e-surek" className='text-lg font-semibold mx-2 hover:text-empat'>E-Surek</a>
-                    <a href="#e-kaba" className='text-lg font-semibold mx-2 hover:text-empat'>E-Kaba</a>
-                    <a href="#e-lapor" className='text-lg font-semibold mx-2 hover:text-empat'>E-Lapor</a>
-                    <a href="#maps" className='text-lg font-semibold mx-2 hover:text-empat'>Peta</a>
-                    <a href="#faq" className='text-lg font-semibold mx-2 hover:text-empat'>Faq</a>
-                </div> */}
-
                 {isLoggedIn ? (
                     <>
                         {/* <div className="dropdown dropdown-end mr-2">
@@ -88,11 +78,6 @@ const Navbar = () => {
                                             <a href='/dashboard-admin'>Dashboard Admin</a>
                                         </li>
                                     )}
-                                    {Role === 'wali' && (
-                                        <li>
-                                            <a href='/dashboard-wali'>Dashboard Wali</a>
-                                        </li>
-                                    )}
                                     <li>
                                         <a href='/profile'>
                                             Profile
@@ -126,4 +111,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default NavbarContent;

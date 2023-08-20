@@ -1,10 +1,12 @@
+import logoPsis from "../../public/images/LogoPsis.svg"
+
 const Footer = () => {
     return (
         <>
             <footer className="footer p-10 bg-lima text-base-content">
                 <div>
-                    <a href="/"><img src="../../public/images/LogoPsis.svg" alt="psis" /></a>
-                    <p className="text-xl text-white font-semibold"><a href="/">Public Service Information System<br />DESA</a></p>
+                    <a href="/"><img src={logoPsis} alt="psis" /></a>
+                    <p className="text-xl text-white font-semibold"><a href="/">Public Service Information System<br />NAGARI</a></p>
                 </div>
                 <div>
                         <h3 className="text-lg font-semibold text-white">Company</h3>
