@@ -36,9 +36,27 @@ const TransparansiUser = () => {
                         <button className="btn bg-empat hover:bg-tiga text-white rounded-lg">
                             <a href="/">Kembali</a>
                         </button>
-                        <p className="text-lg font-semibold ml-5">Tabel Transparansi Anggaran perTahun</p>
+                        <p className="text-lg font-semibold ml-5">Tabel Transparansi Nagari perTahun</p>
                     </div>
                 </div>
+                <div className="p-4">
+                    <div>
+                        <p className="text-lg font-semibold">Jenis - Jenis File PDf untuk Transparansi</p>
+                    </div>
+                    <div>
+                        <li>Statistik Penduduk</li>
+                    </div>
+                    <div>
+                        <li>Peraturan Nagari</li>
+                    </div>
+                    <div>
+                        <li>Keputusan Wali Nagari</li>
+                    </div>
+                    <div>
+                        <li>Transparansi Anggaran</li>
+                    </div>
+                </div>
+
                 <div className="overflow-x-auto">
                     <table className="table bg-satu" encType="multipart/form-data">
                         <thead>
@@ -46,6 +64,8 @@ const TransparansiUser = () => {
                                 <th className="py-2 px-4">No</th>
                                 <th className="py-2 px-4 text-center">Tahun</th>
                                 <th className="py-2 px-4 text-center">File</th>
+                                <th className="py-2 px-4 text-center">Jenis</th>
+                                <th className="py-2 px-4 text-center">Keterangan</th>
                             </tr>
                         </thead>
                         {getListTransparansiResult ? (
@@ -67,6 +87,8 @@ const TransparansiUser = () => {
                                                 </form>
                                             </dialog>
                                         </td>
+                                        <td className="px-4 py-2 text-center"><p className="badge p-3 font-semibold">{transparansi.jenis}</p></td>
+                                        <td className="px-4 py-2 text-center">{transparansi.keterangan}</td>
                                     </tr>
                                 ))}
                             </tbody>

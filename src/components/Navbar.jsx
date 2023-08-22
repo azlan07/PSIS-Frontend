@@ -112,6 +112,12 @@ const Navbar = () => {
                                         </a>
                                     </li>
                                     <li>
+                                        <a href='/table-pemilih-baru'>
+                                            Pemilih Baru
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a onClick={handleLogout}>Logout</a>
                                     </li>
                                 </ul>

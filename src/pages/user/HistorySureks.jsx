@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { editListSurekSelesai, editListSurekGagal, getListSurek } from "../../actions/surekActions";
+import { getListSurek } from "../../actions/surekActions";
 
 import { NavbarContent } from "../../components";
 

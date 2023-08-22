@@ -2,6 +2,7 @@ import LandingPage from "./user/LandingPage";
 import DashboardAdmin from "./admin/DashboardAdmin";
 import Users from "./admin/Users";
 import AddUsers from "./admin/addUsers";
+import EditUsers from "./admin/EditUsers";
 import Sureks from "./admin/Sureks";
 import FormSktm from "./user/Esurek/FormSktm";
 import DetailSktm from "./user/Esurek/DetailSktm";
@@ -23,5 +24,10 @@ import UploadSurat from "./admin/UploadSurat";
 import DetailFile from "./user/Pengajuan/DetailFile";
 import TransparansiUser from "./user/Transparansi/TrasparansiUser";
 import Penduduks from "./admin/Penduduks";
+import FormPemilihBaru from "./user/PemilihBaru/FormPemilihBaru";
+import TablePemilihBaru from "./user/PemilihBaru/TablePemilihBaru";
+import PemilihBaruAdmin from "./admin/PemilihBaruAdmin";
+import FormSurvey from "./user/Survey/FormSurvey";
+import SurveyKepuasanAdmin from "./admin/SurveiKepuasanAdmin";
 
-export {LandingPage, DashboardAdmin, Users, AddUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks }
+export {LandingPage, DashboardAdmin, Users, AddUsers, EditUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks, FormPemilihBaru, TablePemilihBaru, PemilihBaruAdmin, FormSurvey, SurveyKepuasanAdmin }

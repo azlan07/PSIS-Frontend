@@ -72,6 +72,8 @@ const TableTransparansi = () => {
                                 <th className="py-2 px-4">No</th>
                                 <th className="py-2 px-4 text-center">Tahun</th>
                                 <th className="py-2 px-4 text-center">File</th>
+                                <th className="py-2 px-4 text-center">Jenis</th>
+                                <th className="py-2 px-4 text-center">Keterangan</th>
                                 <th className="py-2 px-4 text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -88,13 +90,14 @@ const TableTransparansi = () => {
                                             <dialog id={`transparansi-${transparansi.id}`} className="modal">
                                                 <form method="dialog" className="modal-box w-11/12 max-w-5xl">
                                                     <button className="btn btn-lg btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                                    <h3 className="font-bold text-lg">File Transparansi Anggaran Tahun {transparansi.tahun}</h3>
+                                                    <h3 className="font-bold text-lg">File Transparansi untuk "{transparansi.jenis}" Tahun {transparansi.tahun}</h3>
                                                     <object data={transparansi.file} type="application/pdf" width="100%" height="500px">
                                                     </object>
                                                 </form>
                                             </dialog>
                                         </td>
-
+                                        <td className="px-4 py-2 text-center"><p className="badge p-3 font-semibold">{transparansi.jenis}</p></td>
+                                        <td className="px-4 py-2 text-center">{transparansi.keterangan}</td>
                                         <td className="px-4 py-2 text-center"><button className="btn bg-red-500 text-white" onClick={() => handleClick(transparansi.id)}><FaRegTrashCan /></button></td>
                                     </tr>
                                 ))}

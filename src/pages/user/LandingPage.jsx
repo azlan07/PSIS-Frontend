@@ -1,4 +1,4 @@
-import { Hero, Navbar, Footer, FiturUtama, Esurek, MapsNagari, Faq, Ekaba, Elapor, JumlahPenduduk, TransparansiAnggaran, SekilasNagari} from "../../components"
+import { Hero, Navbar, Footer, FiturUtama, Esurek, MapsNagari, Faq, Ekaba, Elapor, JumlahPenduduk, TransparansiAnggaran, SekilasNagari, PemilihBaru, SurveyKepuasan} from "../../components"
 
 const LandingPage = () => {
     return ( 
@@ -11,6 +11,8 @@ const LandingPage = () => {
             <Elapor/>
             <TransparansiAnggaran/>
             <JumlahPenduduk/>
+            <PemilihBaru/>
+            <SurveyKepuasan/>
             <SekilasNagari/>
             <MapsNagari/>
             <Faq/>

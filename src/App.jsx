@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Login, Protected, ProtectedAdmin, TransparansiAnggaran, Unauthorized } from './components';
-import { LandingPage, DashboardAdmin, Users, AddUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks } from "./pages"
+import { Login, Protected, ProtectedAdmin, TransparansiAnggaran, Unauthorized, TambahFeedback, TableFeedback, EditFeedback } from './components';
+import { LandingPage, DashboardAdmin, Users, AddUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks, FormPemilihBaru, TablePemilihBaru, PemilihBaruAdmin, EditUsers, FormSurvey, SurveyKepuasanAdmin } from "./pages"
 
 //--Start Redux--
 //Redux and Redux DevToolsExtension
@@ -120,6 +120,48 @@ const App = () => {
             </Protected>
           } />
         </Routes>
+        <Routes>
+          <Route path="/add-feedback" element={
+            <Protected>
+              <TambahFeedback />
+            </Protected>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/table-feedback" element={
+            <Protected>
+              <TableFeedback />
+            </Protected>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/edit-feedback/:id" element={
+            <Protected>
+              <EditFeedback />
+            </Protected>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/form-pemilih-baru" element={
+            <Protected>
+              <FormPemilihBaru />
+            </Protected>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/table-pemilih-baru" element={
+            <Protected>
+              <TablePemilihBaru />
+            </Protected>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/form-survey" element={
+            <Protected>
+              <FormSurvey />
+            </Protected>
+          } />
+        </Routes>
         {/* End User */}
 
         {/* Start Admin */}
@@ -141,6 +183,13 @@ const App = () => {
           <Route path="/add-users" element={
             <ProtectedAdmin>
               <AddUsers />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/edit-users/:id" element={
+            <ProtectedAdmin>
+              <EditUsers />
             </ProtectedAdmin>
           } />
         </Routes>
@@ -211,6 +260,20 @@ const App = () => {
           <Route path="/penduduks" element={
             <ProtectedAdmin>
               <Penduduks />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/pemilih-baru-admin" element={
+            <ProtectedAdmin>
+              <PemilihBaruAdmin />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/survey-kepuasan-admin" element={
+            <ProtectedAdmin>
+              <SurveyKepuasanAdmin />
             </ProtectedAdmin>
           } />
         </Routes>

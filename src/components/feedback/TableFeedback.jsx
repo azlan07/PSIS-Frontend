@@ -2,31 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getListUsers, deleteUsers } from "../../actions/userActions";
+import { getListFeedback, deleteFeedback } from "../../actions/feedbackActions";
 
 import { NavbarAdmin } from "../../componentsAdmin";
 import { FaUserPlus } from "react-icons/fa";
-import { FaRegTrashCan, FaEye, FaPenToSquare } from "react-icons/fa6";
+import { FaRegTrashCan, FaEye } from "react-icons/fa6";
 import Swal from 'sweetalert2'
 
-const Users = () => {
-    const { id } = useParams();
+const TableFeedback = () => {
+    const {id} = useParams();
+    // console.log(id);
     const { whoAmIResult } = useSelector((state) => state.authReducer);
-    const { getListUsersResult, getListUsersLoading, getListUsersError } = useSelector((state) => state.usersReducer);
+    const { getListFeedbackResult, getListFeedbackLoading, getListFeedbackError } = useSelector((state) => state.feedbackReducer);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     // Dispatch aksi untuk mengambil daftar pengguna
     useEffect(() => {
-        dispatch(getListUsers());
+        dispatch(getListFeedback());
     }, [dispatch]);
-    console.log(getListUsersResult);
 
     const handleClick = (id) => {
         Swal.fire({
             title: "Apakah Anda yakin?",
-            text: "User akan dihapus secara permanen",
+            text: "Feedbackan akan dihapus secara permanen",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#d33",
@@ -36,8 +36,8 @@ const Users = () => {
             dangerMode: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                dispatch(deleteUsers(id));
-                Swal.fire("Terhapus!", "User telah dihapus.", "success");
+                dispatch(deleteFeedback(id));
+                Swal.fire("Terhapus!", "Data telah dihapus.", "success");
                 location.reload();
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire("Dibatalkan", "Data aman.", "info");
@@ -45,8 +45,11 @@ const Users = () => {
         });
     };
 
+    // const handleDetailClick = (id) => {
+    //     navigate(`/detail-kaba/${id}`);
+    // };
     const handleEdit = (id) => {
-        navigate(`/edit-users/${id}`);
+        navigate(`/edit-feedback/${id}`);
     };
 
     return (
@@ -54,44 +57,40 @@ const Users = () => {
             <NavbarAdmin />
             <div className="mx-auto ml-32 p-24">
                 <div className="flex justify-between items-center">
-                    <p className="text-lg font-semibold">Tabel User</p>
-                    <a href="/add-users" className="btn bg-empat hover:bg-tiga text-white mb-2">
-                        <FaUserPlus /> Tambah User
-                    </a>
+                    <p className="text-lg font-semibold mb-2">Tabel Feedbackan</p>
+                    {/* <a href="/add-kabas" className="btn bg-empat hover:bg-tiga text-white mb-2">
+                        <FaUserPlus /> Tambah Kaba
+                    </a> */}
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table bg-satu" encType="multipart/form-data">
                         <thead>
                             <tr className="text-black">
                                 <th className="py-2 px-4">No</th>
-                                <th className="py-2 px-4 text-center">Foto</th>
                                 <th className="py-2 px-4 text-center">Nama</th>
-                                <th className="py-2 px-4 text-center">Nik</th>
-                                <th className="py-2 px-4 text-center">Kelamin</th>
-                                <th className="py-2 px-4 text-center">Alamat</th>
                                 <th className="py-2 px-4 text-center">Telepon</th>
-                                <th className="py-2 px-4 text-center">Aksi</th>
+                                <th className="py-2 px-4 text-center">Pesan</th>
+                                {/* <th className="py-2 px-4 text-center">Aksi</th> */}
                             </tr>
                         </thead>
-                        {getListUsersResult ? (
+                        {getListFeedbackResult ? (
                             <tbody>
-                                {getListUsersResult.map((users, index) => (
-                                    <tr key={users.id}>
+                                {getListFeedbackResult.slice().reverse().map((lapor, index) => (
+                                    <tr key={lapor.id}>
                                         <th scope="row">{index + 1}</th>
-                                        <td className="px-4 py-2 text-center"><img src={users.image} alt="user-image" className="rounded-full" style={{ width: "50px" }} /></td>
-                                        <td className="px-4 py-2 text-center">{users.name}</td>
-                                        <td className="px-4 py-2 text-center">{users.nik}</td>
-                                        <td className="px-4 py-2 text-center">{users.kelamin}</td>
-                                        <td className="px-4 py-2 text-center">{users.alamat}</td>
-                                        <td className="px-4 py-2 text-center">{users.telepon}</td>
+                                        <td className="px-4 py-2 text-center">{lapor.nama}</td>
+                                        <td className="px-4 py-2 text-center">{lapor.telepon}</td>
+                                        <td className="px-4 py-2 text-center">{lapor.pesan}</td>
                                         <td className="px-4 py-2 text-center">
-                                            <button className="btn bg-yellow-500 text-white" onClick={() => handleEdit(users.id)}><FaPenToSquare /></button>
-                                            <button className="btn bg-red-500 text-white" onClick={() => handleClick(users.id)}><FaRegTrashCan /></button>
+                                            <button className="btn bg-yellow-500 text-white" onClick={() => handleEdit(lapor.id)}>Edit</button>
+                                        </td>
+                                        <td className="px-4 py-2 text-center">
+                                            <button className="btn bg-red-500 text-white" onClick={() => handleClick(lapor.id)}><FaRegTrashCan /></button>
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
-                        ) : getListUsersLoading ? (
+                        ) : getListFeedbackLoading ? (
                             <tbody>
                                 <tr>
                                     <td colSpan="7">
@@ -103,7 +102,7 @@ const Users = () => {
                             <tbody>
                                 <tr>
                                     <td colSpan="7">
-                                        <h1>{getListUsersError ? getListUsersError : "Data Kosong"}</h1>
+                                        <h1>{getListFeedbackError ? getListFeedbackError : "Data Kosong"}</h1>
                                     </td>
                                 </tr>
                             </tbody>
@@ -115,4 +114,4 @@ const Users = () => {
     );
 }
 
-export default Users;
+export default TableFeedback;

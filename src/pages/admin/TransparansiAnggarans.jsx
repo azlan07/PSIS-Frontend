@@ -26,6 +26,8 @@ const TransparansiAnggarans = () => {
 
     const [tahun, setTahun] = useState('');
     const [file, setFile] = useState('');
+    const [jenis, setJenis] = useState('');
+    const [keterangan, setKeterangan] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isRegistered, setRegistered] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -72,11 +74,15 @@ const TransparansiAnggarans = () => {
 
         setTahun('');
         // setFile('');
+        setJenis('');
+        setKeterangan('');
 
         dispatch(
             addListTransparansi({
                 tahun,
-                file
+                file,
+                jenis,
+                keterangan
             })
         );
     }
@@ -118,18 +124,49 @@ const TransparansiAnggarans = () => {
                                             }} />
                                         </div>
                                     </div>
-                                    <button className="mt-3 btn bg-empat hover:bg-lima text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition duration-300 ease-in-out" onClick={uploadFile}> Upload Image</button>
+                                    <button className="mt-3 btn bg-empat hover:bg-lima text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition duration-300 ease-in-out" onClick={uploadFile}> Upload File</button>
                                 </div>
 
                                 {/* Form Image */}
                                 <div className="w-1/2 mt-3 ml-3">
                                     <div className="mb-2">
                                         <label htmlFor="tahun" className="block text-gray-700 font-medium mb-2">Tahun Anggaran</label>
-                                        <input type="text" id="tahun" name="tahun" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan tahun anggaran" required onChange={(e) => setTahun(e.target.value)} value={tahun} />
+                                        <input
+                                            type="number"
+                                            id="tahun"
+                                            name="tahun"
+                                            className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            placeholder="Masukan tahun anggaran"
+                                            min="2020"
+                                            max="2030"
+                                            step="1" // Langkah perubahan nilai (dalam hal ini 1 tahun)
+                                            required
+                                            onChange={(e) => setTahun(e.target.value)}
+                                            value={tahun}
+                                        />
                                     </div>
                                     <div className="mb-2">
                                         <label htmlFor="file" className="block text-gray-700 font-medium mb-2">File Anggaran</label>
                                         <input type="text" id="file" name="file" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan link file anggaran" required onChange={(e) => setFile(e.target.value)} value={file} readOnly />
+                                    </div>
+                                    <div className="mb-2">
+                                        <label htmlFor="jenis" className="block text-gray-700 font-medium mb-2">Jenis Dokumen</label>
+                                        <select
+                                            id="jenis" name="jenis"
+                                            className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                            onChange={(e) => setJenis(e.target.value)}
+                                        >
+                                            <option disabled selected value="">Silahkan pilih</option>
+                                            <option value="statistik penduduk">Statistik Penduduk</option>
+                                            <option value="peraturan nagari">Peraturan Nagari</option>
+                                            <option value="keputusan wali nagari">Keputusan Wali Nagari</option>
+                                            <option value="transparansi anggaran">Transparansi Anggaran</option>
+                                        </select>
+                                    </div>
+                                    <div className="mb-2">
+                                        <label htmlFor="keterangan" className="block text-gray-700 font-medium mb-2">Keterangan</label>
+                                        <input type="text" id="keterangan" name="keterangan" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan keterangan anggaran" required onChange={(e) => setKeterangan(e.target.value)} value={keterangan} />
                                     </div>
                                     <button type="submit" disabled={isLoading} className="mt-3 btn bg-empat hover:bg-lima text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition duration-300 ease-in-out">{isLoading ? 'Loading...' : 'Kirim Data'}</button>
                                 </div>

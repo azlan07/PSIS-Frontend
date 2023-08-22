@@ -125,7 +125,6 @@ const NavbarAdmin = () => {
                 <FaExclamationTriangle className="w-5 h-5 mr-2 inline" />E - Lapor
               </Link>
             </li>
-            <hr />
             <li>
               <Link to="/table-transparansi" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaMoneyCheckDollar className="w-5 h-5 mr-2 inline" />Anggaran
@@ -134,6 +133,16 @@ const NavbarAdmin = () => {
             <li>
               <Link to="/penduduks" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaUsers className="w-5 h-5 mr-2 inline" />Penduduk
+              </Link>
+            </li>
+            <li>
+              <Link to="/pemilih-baru-admin" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+                <FaFileAlt className="w-5 h-5 mr-2 inline" /> Pemilih
+              </Link>
+            </li>
+            <li>
+              <Link to="/survey-kepuasan-admin" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+                <FaFileAlt className="w-5 h-5 mr-2 inline" /> Survey
               </Link>
             </li>
           </ul>

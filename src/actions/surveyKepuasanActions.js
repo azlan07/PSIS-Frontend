@@ -1,15 +1,15 @@
 import axios from "axios";
 import Swal from 'sweetalert2'
-export const ADD_LIST_USERS = "ADD_LIST_USERS";
-export const EDIT_LIST_USERS = "EDIT_LIST_USERS";
-export const GET_DETAIL_LIST_USERS = "GET_DETAIL_LIST_USERS";
-export const GET_LIST_USERS = "GET_LIST_USERS";
-export const DELETE_LIST_USERS = "DELETE_LIST_USERS";
+export const ADD_LIST_SURVEY_KEPUASAN = "ADD_LIST_SURVEY_KEPUASAN";
+export const EDIT_LIST_SURVEY_KEPUASAN = "EDIT_LIST_SURVEY_KEPUASAN";
+export const GET_DETAIL_LIST_SURVEY_KEPUASAN = "GET_DETAIL_LIST_SURVEY_KEPUASAN";
+export const GET_LIST_SURVEY_KEPUASAN = "GET_LIST_SURVEY_KEPUASAN";
+export const DELETE_LIST_SURVEY_KEPUASAN = "DELETE_LIST_SURVEY_KEPUASAN";
 
 //For API Register
-export const addListUsers = (data) => (dispatch) => {
+export const addListSurveyKepuasan = (data) => (dispatch) => {
     dispatch({
-        type: ADD_LIST_USERS,
+        type: ADD_LIST_SURVEY_KEPUASAN,
         payload: {
             loading: true,
             data: false,
@@ -18,13 +18,13 @@ export const addListUsers = (data) => (dispatch) => {
     });
     axios({
         method: "POST",
-        url: "http://localhost:3000/api/v1/register",
+        url: "http://localhost:3000/api/v1/survey",
         data: data,
         timeout: 120000,
     })
         .then((response) => {
             dispatch({
-                type: ADD_LIST_USERS,
+                type: ADD_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: response.data,
@@ -39,22 +39,21 @@ export const addListUsers = (data) => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: ADD_LIST_USERS,
+                type: ADD_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: false,
                     errorMessage: error.message,
                 },
             });
-            swal("Error", "Email sudah terdaftar", "error");
         });
 };
 
 //For API Update
-export const editListUsers = (id, formData) => (dispatch) => {
+export const editListSurveyKepuasan = (id, formData) => (dispatch) => {
     console.log("formdata ", formData);
     dispatch({
-        type: DELETE_LIST_USERS,
+        type: DELETE_LIST_SURVEY_KEPUASAN,
         payload: {
             loading: true,
             data: false,
@@ -64,16 +63,17 @@ export const editListUsers = (id, formData) => (dispatch) => {
     //get API
     axios({
         method: "put",
-        url: `http://localhost:3000/api/v1/users/${id}`,
+        url: `http://localhost:3000/api/v1/survey/${id}`,
         data: formData,
         timeout: 120000,
         headers: {
             "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
         },
     })
         .then((response) => {
             dispatch({
-                type: EDIT_LIST_USERS,
+                type: EDIT_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: response.data.data[0],
@@ -85,7 +85,7 @@ export const editListUsers = (id, formData) => (dispatch) => {
         .catch((error) => {
             console.log(error.message);
             dispatch({
-                type: EDIT_LIST_USERS,
+                type: EDIT_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: false,
@@ -96,9 +96,9 @@ export const editListUsers = (id, formData) => (dispatch) => {
 };
 
 //For API Get User by Id
-export const getDetailListUsers = (id) => (dispatch) => {
+export const getDetailListSurveyKepuasan = (id) => (dispatch) => {
     dispatch({
-        type: GET_DETAIL_LIST_USERS,
+        type: GET_DETAIL_LIST_SURVEY_KEPUASAN,
         payload: {
             loading: true,
             data: false,
@@ -108,12 +108,12 @@ export const getDetailListUsers = (id) => (dispatch) => {
 
     axios({
         method: "GET",
-        url: `http://localhost:3000/user/${id}`,
+        url: `http://localhost:3000/survey/${id}`,
         timeout: 120000,
     })
         .then((response) => {
             dispatch({
-                type: GET_DETAIL_LIST_USERS,
+                type: GET_DETAIL_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: response.data,
@@ -123,7 +123,7 @@ export const getDetailListUsers = (id) => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: GET_DETAIL_LIST_USERS,
+                type: GET_DETAIL_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: false,
@@ -133,11 +133,11 @@ export const getDetailListUsers = (id) => (dispatch) => {
         });
 };
 
-//For API List Users
-export const getListUsers = () => (dispatch) => {
+//For API List SurveyKepuasan
+export const getListSurveyKepuasan = () => (dispatch) => {
     const token = localStorage.getItem("token");
     dispatch({
-        type: GET_LIST_USERS,
+        type: GET_LIST_SURVEY_KEPUASAN,
         payload: {
             loading: true,
             data: false,
@@ -146,7 +146,7 @@ export const getListUsers = () => (dispatch) => {
     });
     axios({
         method: "GET",
-        url: "http://localhost:3000/api/v1/users",
+        url: "http://localhost:3000/api/v1/survey",
         timeout: 120000,
         headers: {
             "Content-Type": "application/json",
@@ -155,7 +155,7 @@ export const getListUsers = () => (dispatch) => {
     })
         .then((response) => {
             dispatch({
-                type: GET_LIST_USERS,
+                type: GET_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: response.data.data,
@@ -165,7 +165,7 @@ export const getListUsers = () => (dispatch) => {
         })
         .catch((error) => {
             dispatch({
-                type: GET_LIST_USERS,
+                type: GET_LIST_SURVEY_KEPUASAN,
                 payload: {
                     loading: false,
                     data: false,
@@ -175,10 +175,10 @@ export const getListUsers = () => (dispatch) => {
         });
 };
 
-export const deleteUsers = (id) => (dispatch) => {
+export const deleteSurveyKepuasan = (id) => (dispatch) => {
     const token = localStorage.getItem("token");
     dispatch({
-      type: DELETE_LIST_USERS,
+      type: DELETE_LIST_SURVEY_KEPUASAN,
       payload: {
         loading: true,
         data: false,
@@ -187,7 +187,7 @@ export const deleteUsers = (id) => (dispatch) => {
     });
     axios({
       method: "delete",
-      url: `http://localhost:3000/api/v1/users/${id}`,
+      url: `http://localhost:3000/api/v1/survey/${id}`,
       timeout: 120000,
       headers: {
         "Content-Type": "application/json",
@@ -196,7 +196,7 @@ export const deleteUsers = (id) => (dispatch) => {
     })
       .then((response) => {
         dispatch({
-          type: DELETE_LIST_USERS,
+          type: DELETE_LIST_SURVEY_KEPUASAN,
           payload: {
             loading: false,
             data: response.data,
@@ -206,7 +206,7 @@ export const deleteUsers = (id) => (dispatch) => {
       })
       .catch((error) => {
         dispatch({
-          type: DELETE_LIST_USERS,
+          type: DELETE_LIST_SURVEY_KEPUASAN,
           payload: {
             loading: false,
             data: false,

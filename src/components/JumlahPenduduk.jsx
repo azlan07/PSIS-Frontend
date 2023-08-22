@@ -29,14 +29,14 @@ const JumlahPenduduk = () => {
             (surek) => surek.id === parseInt(id)
         )
         : [];
-    console.log(getListPendudukResult);
+    // console.log(getListPendudukResult);
 
     return (
         <>
             {filteredSurek.map((surek) => (
-                <div className="my-20 py-5">
+                <div key={surek.id} className="my-20 py-5">
                     <h1 className="text-4xl font-semibold text-center mb-10">Jumlah Penduduk</h1>
-                    <div key={surek.id} className="flex justify-center">
+                    <div className="flex justify-center">
                         <div className="card bg-dua hover:bg-tiga transition-transform duration-300 transform hover:scale-105 cursor-pointer shadow-xl w-full sm:w-80 mx-5 mb-5 sm:mb-0">
                             <div className="card-body items-center text-center">
                                 <FaUsers className='text-9xl' />

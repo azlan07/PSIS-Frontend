@@ -15,7 +15,12 @@ import Loading from "./Loading";
 import MapsNagari from "./MapsNagari";
 import ImageViewer from "./ImageViewer";
 import JumlahPenduduk from "./JumlahPenduduk";
+import PemilihBaru from "./PemilihBaru";
 import TransparansiAnggaran from "./TransparansiAnggaran";
 import SekilasNagari from "./SekilasNagari";
+import TambahFeedback from "./feedback/TambahFeedback";
+import TableFeedback from "./feedback/tableFeedback";
+import EditFeedback from "./feedback/editFeedback";
+import SurveyKepuasan from "./SurveyKepuasan";
 
-export {Hero, Navbar, NavbarContent, Footer, FiturUtama, Esurek, Ekaba, Elapor, Faq, Login, Protected, ProtectedAdmin, Unauthorized, Loading, MapsNagari, ImageViewer, JumlahPenduduk,TransparansiAnggaran, SekilasNagari}
+export {Hero, Navbar, NavbarContent, Footer, FiturUtama, Esurek, Ekaba, Elapor, Faq, Login, Protected, ProtectedAdmin, Unauthorized, Loading, MapsNagari, ImageViewer, JumlahPenduduk, PemilihBaru, TransparansiAnggaran, SekilasNagari, TambahFeedback, TableFeedback, EditFeedback, SurveyKepuasan}
