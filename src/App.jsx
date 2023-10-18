@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Login, Protected, ProtectedAdmin, TransparansiAnggaran, Unauthorized, TambahFeedback, TableFeedback, EditFeedback } from './components';
-import { LandingPage, DashboardAdmin, Users, AddUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks, FormPemilihBaru, TablePemilihBaru, PemilihBaruAdmin, EditUsers, FormSurvey, SurveyKepuasanAdmin } from "./pages"
+import { LandingPage, DashboardAdmin, Users, AddUsers, Sureks, FormSktm, DetailSktm, HistorySureks, FormElapor, Profile, Kabas, AddKabas, EkabaDashboard, DetailKaba, HistoryLapor, Lapors, FormPengajuan, DetailPengajuan, DashboardWali, TransparansiAnggarans, TableTransparansi, UploadSurat, DetailFile, TransparansiUser, Penduduks, FormPemilihBaru, TablePemilihBaru, PemilihBaruAdmin, EditUsers, FormSurvey, SurveyKepuasanAdmin, SureksWali, UsersWali, KabasWali, LaporsWali } from "./pages"
 
 //--Start Redux--
 //Redux and Redux DevToolsExtension
@@ -250,9 +250,30 @@ const App = () => {
           } />
         </Routes>
         <Routes>
-          <Route path="/dashboard-wali" element={
+          <Route path="/sureks-wali" element={
             <ProtectedAdmin>
-              <DashboardWali />
+              <SureksWali />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/kabas-wali" element={
+            <ProtectedAdmin>
+              <KabasWali />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/lapors-wali" element={
+            <ProtectedAdmin>
+              <LaporsWali />
+            </ProtectedAdmin>
+          } />
+        </Routes>
+        <Routes>
+          <Route path="/users-wali" element={
+            <ProtectedAdmin>
+              <UsersWali />
             </ProtectedAdmin>
           } />
         </Routes>

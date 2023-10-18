@@ -140,7 +140,7 @@ export const editListSurekUpload = (id, formData, linkFile) => (dispatch) => {
         });
 };
 
-export const editListSurekDiteruskan = (id, formData) => (dispatch) => {
+export const editListSurekDiproses = (id, formData) => (dispatch) => {
     // console.log("formdata ", formData);
     dispatch({
         type: EDIT_LIST_SUREK,
@@ -152,7 +152,7 @@ export const editListSurekDiteruskan = (id, formData) => (dispatch) => {
     });
     axios({
         method: "put",
-        url: `http://localhost:3000/api/v1/surekditeruskan/${id}`,
+        url: `http://localhost:3000/api/v1/surekdiproses/${id}`,
         data: formData,
         timeout: 120000,
         headers: {

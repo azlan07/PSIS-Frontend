@@ -124,11 +124,11 @@ function EditUsers() {
                                         </div>
                                         <div className="mb-2">
                                             <label htmlFor="alamat" className="block text-gray-700 font-medium mb-2">Alamat Lengkap</label>
-                                            <input type="text" id="alamat" name="alamat" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan alamat lengkap" defaultValue={users.alamat} onChange={handleChange} readOnly />
+                                            <input type="text" id="alamat" name="alamat" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan alamat lengkap" defaultValue={users.alamat} onChange={handleChange} />
                                         </div>
                                         <div className="mb-2">
                                             <label htmlFor="telepon" className="block text-gray-700 font-medium mb-2">Nomor WhatsApp aktif</label>
-                                            <input type="text" id="telepon" name="telepon" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nomor WhatsApp aktif" defaultValue={users.telepon} onChange={handleChange} readOnly />
+                                            <input type="text" id="telepon" name="telepon" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nomor WhatsApp aktif" defaultValue={users.telepon} onChange={handleChange} />
                                         </div>
                                         <button type="submit" disabled={isLoading} className="mt-3 btn bg-empat hover:bg-lima text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition duration-300 ease-in-out">{isLoading ? 'Loading...' : 'Simpan'}</button>
                                         <a href="/users" disabled={isLoading} className="mt-3 btn bg-empat hover:bg-lima text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition duration-300 ease-in-out">{isLoading ? 'Loading...' : 'Batal'}</a>

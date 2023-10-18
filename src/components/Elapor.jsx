@@ -27,10 +27,10 @@ const Elapor = () => {
                     </div>
                     <dialog id="lapor" className="modal">
                         <form method="dialog" className="modal-box w-11/12 max-w-5xl">
-                            <div class="flex items-center justify-between mb-5">
-                                <h3 class="font-bold text-lg">Pilihan Identitas</h3>
-                                <div class="modal-action">
-                                    <button class="btn bg-dua hover:bg-satu"> <FaArrowRight/>Close</button>
+                            <div className="flex items-center justify-between mb-5">
+                                <h3 className="font-bold text-lg">Pilihan Identitas</h3>
+                                <div className="modal-action">
+                                    <button className="btn bg-dua hover:bg-satu"> <FaArrowRight/>Close</button>
                                 </div>
                             </div>
 

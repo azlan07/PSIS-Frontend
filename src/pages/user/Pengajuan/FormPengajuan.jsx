@@ -21,7 +21,7 @@ const FormPengajuan = () => {
     const [nama_surat, setNamaSurat] = useState('');
     const [keterangan_lain, setKeteranganLain] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [isRegistered, setRegistered] = useState(false);
+    const [isDataComplete, setDataComplete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const { addPengajuanResult } = useSelector((state) => state.pengajuanReducer);
@@ -35,14 +35,26 @@ const FormPengajuan = () => {
         if (whoAmIResult.id) {
             setUserId(whoAmIResult.id);
         }
-    }, [whoAmIResult.id]);
+        if (whoAmIResult.name) {
+            setName(whoAmIResult.name);
+        }
+        if (whoAmIResult.nik) {
+            setNik(whoAmIResult.nik);
+        }
+        if (whoAmIResult.alamat) {
+            setAlamat(whoAmIResult.alamat);
+        }
+        if (whoAmIResult.telepon) {
+            setTelepon(whoAmIResult.telepon);
+        }
+    }, [whoAmIResult.id, whoAmIResult.name, whoAmIResult.nik, whoAmIResult.alamat, whoAmIResult.telepon]);
 
     function handleSubmit(e) {
         setIsLoading(true);
         e.preventDefault();
         setIsLoading(true);
 
-        setName('');
+        // setName('');
         setNik('');
         setAlamat('');
         setTelepon('');
@@ -72,7 +84,7 @@ const FormPengajuan = () => {
                     navigate('/history-sureks');
                 });
         }
-    }, [addPengajuanResult]);
+    }, [addPengajuanResult])
 
     return (
         <>
@@ -91,19 +103,19 @@ const FormPengajuan = () => {
                                 <div className="w-1/2 mr-4 mt-3">
                                     <div className="mb-2">
                                         <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
-                                        <input type="text" id="name" name="name" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nama lengkap" required onChange={(e) => setName(e.target.value)} value={name} />
+                                        <input type="text" id="name" name="name" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nama lengkap" onChange={(e) => setName(e.target.value)} value={name} />
                                     </div>
                                     <div className="mb-2">
                                         <label htmlFor="Nik" className="block text-gray-700 font-medium mb-2">Nik</label>
-                                        <input type="number" id="nik" name="nik" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="NIK" required onChange={(e) => setNik(e.target.value)} value={nik} />
+                                        <input type="number" id="nik" name="nik" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="NIK" onChange={(e) => setNik(e.target.value)} value={whoAmIResult.nik} />
                                     </div>
                                     <div className="mb-2">
                                         <label htmlFor="alamat" className="block text-gray-700 font-medium mb-2">Alamat Lengkap</label>
-                                        <input type="text" id="alamat" name="alamat" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan alamat lengkap" required onChange={(e) => setAlamat(e.target.value)} value={alamat} />
+                                        <input type="text" id="alamat" name="alamat" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan alamat lengkap" onChange={(e) => setAlamat(e.target.value)} value={whoAmIResult.alamat} />
                                     </div>
                                     <div className="mb-2">
                                         <label htmlFor="telepon" className="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
-                                        <input type="text" id="telepon" name="telepon" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nomor whatsapp aktif" required onChange={(e) => setTelepon(e.target.value)} value={telepon} />
+                                        <input type="text" id="telepon" name="telepon" className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukan nomor whatsapp aktif" onChange={(e) => setTelepon(e.target.value)} value={whoAmIResult.telepon} />
                                     </div>
                                     <div className="mb-2">
                                         <label htmlFor="nama_surat" className="block text-gray-700 font-medium mb-2">Nama Surat</label>

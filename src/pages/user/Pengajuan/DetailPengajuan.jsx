@@ -43,7 +43,7 @@ const DetailPengajuan = () => {
                         <button
                             className="btn bg-empat hover:bg-tiga text-white rounded-lg"
                         >
-                            <a href="/sureks">Kembali</a>
+                            <a href="/surek s">Kembali</a>
                         </button>
                     ) : whoAmIResult.role === "wali" ? (
                         <button className="btn bg-empat hover:bg-tiga text-white rounded-lg">

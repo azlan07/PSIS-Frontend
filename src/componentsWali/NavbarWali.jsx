@@ -98,31 +98,31 @@ const NavbarWali = () => {
         <div>
           <p className="text-lg text-center font-semibold">WALI NAGARI PAGE</p>
           <ul className="mt-4 space-y-2">
-            {/* <li>
+            <li>
               <Link to="/dashboard-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaHouseUser className="w-5 h-5 mr-2 inline" />Dashboard
               </Link>
-            </li> */}
-            {/* <li>
-              <Link to="/users" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+            </li>
+            <li>
+              <Link to="/users-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaUserFriends className="w-5 h-5 mr-2 inline" />Users
               </Link>
-            </li> */}
+            </li>
             <li>
-              <Link to="/dashboard-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+              <Link to="/sureks-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaFileAlt className="w-5 h-5 mr-2 inline" />E - Surek
               </Link>
             </li>
-            {/* <li>
-              <Link to="/kabas" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+            <li>
+              <Link to="/kabas-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaBullhorn className="w-5 h-5 mr-2 inline" />E - Kaba
               </Link>
             </li>
             <li>
-              <Link to="/lapors" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
+              <Link to="/lapors-wali" className="btn btn-ghost hover:bg-tiga normal-case text-lg">
                 <FaExclamationTriangle className="w-5 h-5 mr-2 inline" />E - Lapor
               </Link>
-            </li> */}
+            </li>
           </ul>
         </div>
       </aside>

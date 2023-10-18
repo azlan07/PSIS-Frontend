@@ -25,10 +25,10 @@ const DetailFile = () => {
 
     const filteredSurek = Array.isArray(getListUploadSurekResult)
         ? getListUploadSurekResult.filter(
-            (surek) => surek.id === parseInt(id)
+            (surek) => surek.surek_id === parseInt(id)
         )
         : [];
-    // console.log(getListPengajuanResult);
+    // console.log(getListUploadSurekResult);
 
     return (
         <main>

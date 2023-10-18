@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { editListSurekDiperiksa, editListSurekDiproses, editListSurekSelesai, editListSurekGagal, getListSurek } from "../../actions/surekActions";
 import { getListUploadSurek } from "../../actions/uploadSurekActions";
 
-import { NavbarAdmin } from "../../componentsAdmin";
+import { NavbarWali } from "../../componentsWali";
 import { FaRegTrashCan, FaEye, FaCloudArrowUp, FaRegClock } from "react-icons/fa6";
 
-const Sureks = () => {
+const SureksWali = () => {
 
     const { getListSurekResult, getListSurekLoading, getListSurekError } = useSelector((state) => state.surekReducer);
     const { getListUploadSurekResult } = useSelector((state) => state.uploadSurekReducer);
@@ -79,7 +79,7 @@ const Sureks = () => {
 
     return (
         <>
-            <NavbarAdmin />
+            <NavbarWali />
             <div className="mx-auto ml-32 p-24 w-11/12">
                 <div className="overflow-x-auto">
                     <h2 className="mx-auto mb-5 text-center text-lg font-bold shadow-sm">Rekap Pengurusan Surat</h2>
@@ -93,7 +93,6 @@ const Sureks = () => {
                                 <th className="py-2 px-4 text-center">Jenis Surat</th>
                                 <th className="py-2 px-4 text-center">Detail</th>
                                 <th className="py-2 px-4 text-center">File</th>
-                                <th className="py-2 px-4 text-center">Konfirmasi Status</th>
                             </tr>
                         </thead>
                         {getListSurekResult ? (
@@ -159,48 +158,6 @@ const Sureks = () => {
                                                 )}
                                             </div>
                                         </td>
-                                        <td className="px-4 py-2 text-center">
-                                            <div className="flex flex-col space-y-4">
-                                                {surek.status === "diajukan" ? (
-                                                    <>
-                                                        <button
-                                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                                            onClick={(event) => handleDiperiksa(event, surek.id)}
-
-                                                        >
-                                                            Periksa
-                                                        </button>
-                                                    </>
-                                                ) : surek.status === "diperiksa" ? (
-                                                    <button
-                                                        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
-                                                        onClick={(event) => handleDiproses(event, surek.id)}
-                                                    >
-                                                        Proses
-                                                    </button>
-                                                ) :
-                                                    <div>
-                                                        <div className="mx-auto">
-                                                            <button
-                                                                className="bg-red-500 mr-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                                                onClick={(event) => handleGagal(event, surek.id)}
-                                                            >
-                                                                Gagal
-                                                            </button>
-
-                                                        </div>,
-                                                        <div>
-                                                            <button
-                                                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-                                                                onClick={(event) => handleSelesai(event, surek.id)}
-                                                            >
-                                                                Selesai
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                }
-                                            </div>
-                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -228,4 +185,4 @@ const Sureks = () => {
     );
 }
 
-export default Sureks;
+export default SureksWali;
