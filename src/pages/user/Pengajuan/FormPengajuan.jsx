@@ -26,7 +26,6 @@ const FormPengajuan = () => {
 
     const { addPengajuanResult } = useSelector((state) => state.pengajuanReducer);
     const { whoAmIResult } = useSelector((state) => state.authReducer);
-    // console.log(whoAmIResult.id);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
