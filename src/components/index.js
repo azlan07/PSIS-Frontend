@@ -19,8 +19,8 @@ import PemilihBaru from "./PemilihBaru";
 import TransparansiAnggaran from "./TransparansiAnggaran";
 import SekilasNagari from "./SekilasNagari";
 import TambahFeedback from "./feedback/TambahFeedback";
-import TableFeedback from "./feedback/tableFeedback";
-import EditFeedback from "./feedback/editFeedback";
+import TableFeedback from "./feedback/TableFeedback";
+import EditFeedback from "./feedback/EditFeedback";
 import SurveyKepuasan from "./SurveyKepuasan";
 
 export {Hero, Navbar, NavbarContent, Footer, FiturUtama, Esurek, Ekaba, Elapor, Faq, Login, Protected, ProtectedAdmin, Unauthorized, Loading, MapsNagari, ImageViewer, JumlahPenduduk, PemilihBaru, TransparansiAnggaran, SekilasNagari, TambahFeedback, TableFeedback, EditFeedback, SurveyKepuasan}
